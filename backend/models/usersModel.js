@@ -1,41 +1,34 @@
-import mongoose from 'mongoose'
-
-const validator = require('mongoose-validator')
+import mongoose from "mongoose";
+require('mongoose-type-email');
 
 const userSchema = mongoose.Schema({
     firstName: {
-        type: String,
+      type: String,
+      reqired: true,
     },
-    secondName:{
-        type: String,
+    lastName: {
+      type: String,
+      required: true,
     },
     email: {
-        type: String,
+        type: mongoose.SchemaTypes.Email,
         required: true,
         unique:true,
-        validate: [
-            validator({
-              validator: 'isEmail',
-              message: 'Oops..please enter valid email'
-            })
-          ]
     },
     password: {
         type: String,
         required: true,
-
-    },
-    city: String,
-    
+    },  
     gender: {
-        type: String, enum: ["Male", "Female"]
+        type: String, 
+        enum: ["Male", "Female"],
+        required: true,
     }
-
-
-}, {
+}, 
+{
     timestamps: true
-})
+});
 
-const User = mongoose.model('User', userSchema)
+const User = mongoose.model("User", userSchema);
 
-export default User
+export default User;
