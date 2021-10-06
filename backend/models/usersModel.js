@@ -1,37 +1,33 @@
 import mongoose from "mongoose";
+require('mongoose-type-email');
 
-const userSchema = mongoose.Schema(
-  {
+const userSchema = mongoose.Schema({
     firstName: {
       type: String,
+      reqired: true,
     },
-    secondName: {
-      type: String,
-    },
-    userName: {
+    lastName: {
       type: String,
       required: true,
-      unique: true,
     },
     email: {
-      type: String,
-      required: true,
-      unique: true,
+        type: mongoose.SchemaTypes.Email,
+        required: true,
+        unique:true,
     },
     password: {
-      type: String,
-      required: true,
-    },
-    isAdmin: {
-      type: Boolean,
-      required: true,
-      defualt: false,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
+        type: String,
+        required: true,
+    },  
+    gender: {
+        type: String, 
+        enum: ["Male", "Female"],
+        required: true,
+    }
+}, 
+{
+    timestamps: true
+});
 
 const User = mongoose.model("User", userSchema);
 
