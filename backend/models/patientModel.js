@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-require('mongoose-type-email');
+import 'mongoose-type-email';
 mongoose.SchemaTypes.Email.defaults.message = 'Email address is invalid';
 
 const patientSchema = mongoose.Schema(

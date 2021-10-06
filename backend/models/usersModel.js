@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-require('mongoose-type-email');
+import 'mongoose-type-email';
 
 const userSchema = mongoose.Schema({
     firstName: {
