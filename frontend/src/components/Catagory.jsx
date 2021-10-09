@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "../App.css";
 import "./catagory.css";
-import img from "../asset/slider_imgs/1.jpg"
+import img from "../asset/slider_imgs/4.jpg"
 
 class Catagory extends Component {
     render() {
         return (
             <>
-            <img src={img} alt="1" width="100%" height="500px"/>
-            <div className="container_cat container-cat" >
+            <img src={img} alt="1" width="100%"/>
+            <div className="container_cat container-cat" id="categories">
             <a href="#" className="cat">
                 <img alt="" src={img}/>
                 <p>Child Health</p>

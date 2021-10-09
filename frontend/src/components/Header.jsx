@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import {Link as ScrollLink } from 'react-scroll';
 import "../App.css";
 import "./header.css";
 
@@ -13,23 +15,23 @@ class Header extends Component {
                     <nav>
                         <ul>
                             <li>
-                                <a href="./">Home</a>
+                                <Link to="/" className="link">Home</Link>
                                 <div className="line"></div>
                             </li>
                             <li>
-                                <a href="#categories">Categories</a>
+                                <ScrollLink to="categories" className="link">Categories</ScrollLink>
                                 <div className="line"></div>
                             </li>
                             <li>
-                                <a href="./">Contact Us</a>
+                                <Link className="link" to="/">contact us</Link>
                                 <div className="line"></div>
                             </li>
                             <li>
-                                <a href="./">Login</a>
+                                <Link to="/login" className="link">Login</Link>
                                 <div className="line"></div>
                             </li>
                             <li>
-                                <a href="./">Sign in</a>
+                                <Link to="/signup" className="link">Sign Up</Link>
                                 <div className="line"></div>
                             </li>
                         </ul>
