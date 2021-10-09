@@ -1,0 +1,26 @@
+.container_cat{
+    width: 70%;
+    margin: 50px auto;
+    border: 1px solid black;
+    }
+    
+    .container-cat{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    }
+    
+    .cat{
+    text-decoration: none;
+    color: black;
+    box-shadow: 3px 2px 5px grey;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    }
+    
+    .cat img{
+    height: 100px;
+    width: 140px;
+    }
