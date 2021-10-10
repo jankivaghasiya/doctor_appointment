@@ -1,26 +1,33 @@
 .container_cat {
     width: 90%;
     margin: 50px auto;
-    border: 1px solid black;
+    border: 0.5px solid rgba(153, 149, 149, 0.13);
 }
 
 .container-cat {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
-    padding: 20px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap: 16px;
 }
 
 .cat {
     text-decoration: none;
     color: black;
     box-shadow: 3px 2px 5px grey;
-    padding: 5px;
+    padding: 8px;
     margin: 10px;
     text-align: center;
+    font-size: large;
 }
 
 .cat img {
-    height: 100px;
-    width: 140px;
+    height: 120px;
+    width: 170px;
+}
+h1{
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
