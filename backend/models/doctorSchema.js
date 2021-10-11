@@ -32,4 +32,4 @@ const doctorSchema = mongoose.Schema({
 
 const Doctor = mongoose.model('doctor', doctorSchema)
 
-export default Doctor
+export default Doctor;
