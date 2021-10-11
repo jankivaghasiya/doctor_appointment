@@ -6,11 +6,11 @@ const bookingSchema =new Schema(
     {
       doctor: {
         type: Schema.Types.ObjectId,
-        ref: 'doctorModel',
+        ref: 'Doctor',
       },
       patient: {
         type: Schema.Types.ObjectId,
-        ref: 'patientModel',
+        ref: 'Patient',
       },
       date: String,
       slot_no: Number,

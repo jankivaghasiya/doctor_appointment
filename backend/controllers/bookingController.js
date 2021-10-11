@@ -1,6 +1,5 @@
 import Booking from "../models/bookingsModel.js";
 import asyncHandler from "express-async-handler";
-import { json } from "express";
 import mongoose from "mongoose";
 
 export const isSlotAvailable = asyncHandler(async (req, res) => {
