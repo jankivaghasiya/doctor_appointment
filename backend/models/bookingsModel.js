@@ -7,17 +7,13 @@ const bookingSchema =new Schema(
       doctor: {
         type: Schema.Types.ObjectId,
         ref: 'doctorModel',
-        required: true
       },
       patient: {
         type: Schema.Types.ObjectId,
         ref: 'patientModel',
-        required: true
       },
-      slot_time: {
-        type : Date,
-        required: true
-      }
+      date: String,
+      slot_no: Number,
     },
 
     { timestamps: true }
