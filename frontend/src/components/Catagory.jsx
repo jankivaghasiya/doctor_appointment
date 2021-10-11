@@ -23,21 +23,22 @@ class Catagory extends Component {
         return (
             <>
             <img src={img} alt="1" width="100%" height="20%"/>
-            <br/><br/><br/>
+            <br/>            <br/><br/>
             <h1>Our Specialists</h1>
-            <div className="container_cat container-cat" id="categories">
             
+            <div className="container_cat container-cat" id="categories">
+
             <a href="#" className="cat">
-               <img alt="" src={img3}/>
-                <p>Critical Care</p>
+               <img alt="" src={img1}/>
+                <p>Allergist</p>
             </a>
             <a href="#" className="cat">
             <img alt="" src={img4}/>
-                <p>Dental Surgery</p>
+                <p>Dentiest</p>
             </a>
             <a href="#" className="cat">
             <img alt="" src={img14}/>
-                <p>Ear, Nose & Throat</p>
+                <p>Otolaryngologist</p>
             </a>
             <a href="#" className="cat">
             <img alt="" src={img15}/>
@@ -45,49 +46,49 @@ class Catagory extends Component {
             </a>
             <a href="#" className="cat">
             <img alt="" src={img7}/>
-                <p>Cancer-Oncology</p>
+                <p>Oncologist</p>
             </a>
             <a href="#" className="cat">
-            <img alt="" src={img8}/>
-                <p>Day Care</p>
+            <img alt="" src={img3}/>
+                <p>Neurologist</p>
             </a>
             <a href="#" className="cat">
             <img alt="" src={img9}/>
-                <p>Endocrinology</p>
+                <p>Endocrinologist</p>
             </a>
             <a href="#" className="cat">
             <img alt="" src={img11}/>
-                <p>Bariatric Surgery</p>
+                <p>Nephrologist</p>
             </a>
             <a href="#" className="cat">
-                <img alt="" src={img1}/>
-                <p>Accident & Emergency Care</p>
+                <img alt="" src={img8}/>
+                <p>Plastic Surgeon</p>
             </a>
             <a href="#" className="cat">
                 <img alt="" src={img2}/>
-                <p>cardiothoracic Surgery</p>
+                <p>Cardiologist</p>
             </a>
             <a href="#" className="cat">
             <img alt="" src={img5}/>
-                <p>Gastroenterology Surgery</p>
+                <p>Gastroenterologist</p>
             </a>
            
             <a href="#" className="cat">
             <img alt="" src={img10}/>
-                <p>General & Laparoscopic Surgery</p>
+                <p>Laparoscopic Surgeon</p>
             </a>
             
             <a href="#" className="cat">
             <img alt="" src={img12}/>
-                <p>Clinical Nutrition & Dietetics</p>
+                <p>Radiologist</p>
             </a>
             <a href="#" className="cat">
             <img alt="" src={img13}/>
-                <p>Dermatology & Cosmetology</p>
+                <p>Dermatologist</p>
             </a>
             <a href="#" className="cat">
             <img alt="" src={img6}/>
-                <p>Anesthesiology & Pain Management</p>
+                <p>Pediatrician</p>
             </a>
             
         </div>
