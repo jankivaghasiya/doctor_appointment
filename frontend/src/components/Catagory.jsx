@@ -24,7 +24,7 @@ class Catagory extends Component {
             <>
             <img src={img} alt="1" width="100%" height="20%"/>
             <br/>            <br/><br/>
-            <h1>Our Specialists</h1>
+            <h1 className="heading-font">Our Specialists</h1>
             
             <div className="container_cat container-cat" id="categories">
 

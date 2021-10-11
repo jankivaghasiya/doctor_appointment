@@ -26,7 +26,8 @@
     height: 120px;
     width: 170px;
 }
-h1{
+
+.heading-font{
     font-size: x-large;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
