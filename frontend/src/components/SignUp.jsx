@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import "./signup.css";
+import "./styles.css";
 import validator from "validator";
 
 class Signup extends Component {
-//   state = {
-//     email: "",
-//   };
+  //   state = {
+  //     email: "",
+  //   };
 
-//   handleBlur = () => {
-//     if (!validator.isEmail(this.state.email)) {
-//       alert("Invalid Email");
-//     }
-//   };
+  //   handleBlur = () => {
+  //     if (!validator.isEmail(this.state.email)) {
+  //       alert("Invalid Email");
+  //     }
+  //   };
 
   render() {
     return (
       <div>
-        <div className="login">
-          <form className="login-form">
+        <div className="account">
+          <form className="account-form">
             <input type="text" placeholder="First Name" className="input" />
             <input type="text" placeholder="Last Name" className="input" />
             <input
@@ -25,8 +25,8 @@ class Signup extends Component {
               placeholder="Email"
               className="input"
               id="email"
-            //   value={this.state.email}
-            //   onBlur={this.handleBlur}
+              //   value={this.state.email}
+              //   onBlur={this.handleBlur}
             />
             <input type="password" placeholder="Password" className="input" />
             <input
