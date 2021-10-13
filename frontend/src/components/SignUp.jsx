@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "./styles.css";
-import validator from "validator";
+// import validator from "validator";
 
 class Signup extends Component {
   //   state = {

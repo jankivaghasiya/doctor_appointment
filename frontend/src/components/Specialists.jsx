@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../App.css";
-import "./styles.css";
 import IMAGES from "../asset/category_images.js";
-class Catagory extends Component {
+
+class Specialists extends Component {
   render() {
     return (
       <>
@@ -13,12 +12,12 @@ class Catagory extends Component {
           width="100%"
           height="20%"
         />
-        <h1 className="heading-font">Our Specialists</h1>
-        <div className="container_cat container-cat" id="categories">
+        <h1 className="heading-font" id="categories">Our Specialists</h1>
+        <div className="container_cat container-cat">
           <div className="cat">
             <img alt="" src={IMAGES.Allergist} />
             <div>
-              <Link to="/" className="Link" className="Link">
+              <Link to="/" className="Link" >
                 Allergist
               </Link>
             </div>
@@ -144,4 +143,4 @@ class Catagory extends Component {
   }
 }
 
-export default Catagory;
+export default Specialists;

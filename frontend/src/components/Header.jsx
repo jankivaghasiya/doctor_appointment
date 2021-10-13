@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import "../App.css";
-import "./styles.css";
 
 class Header extends Component {
   render() {
