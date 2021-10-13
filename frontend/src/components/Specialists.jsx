@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../App.css";
-import "./styles.css";
 import IMAGES from "../asset/category_images.js";
+
 class Specialists extends Component {
   render() {
     return (
