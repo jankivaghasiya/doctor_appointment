@@ -2,43 +2,90 @@ import React, { Component } from "react";
 // import validator from "validator";
 
 class Signup extends Component {
-  //   state = {
-  //     email: "",
-  //   };
+    state = {
+        fName: "",
+        lName: "",
+        email: "",
+        password: "",
+        password2: "",
+    };
 
-  //   handleBlur = () => {
-  //     if (!validator.isEmail(this.state.email)) {
-  //       alert("Invalid Email");
-  //     }
-  //   };
+    handleChange = (event, propperty) => {
+        this.setState({ [propperty]: event.target.value });
+    };
 
-  render() {
-    return (
-      <div>
-        <div className="account">
-          <form className="account-form">
-            <input type="text" placeholder="First Name" className="input" />
-            <input type="text" placeholder="Last Name" className="input" />
-            <input
-              type="text"
-              placeholder="Email"
-              className="input"
-              id="email"
-              //   value={this.state.email}
-              //   onBlur={this.handleBlur}
-            />
-            <input type="password" placeholder="Password" className="input" />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              className="input"
-            />
-            <button className="submit">Sign Up</button>
-          </form>
-        </div>
-      </div>
-    );
-  }
+    handleSubmit = (event) => {
+        event.preventDefault();
+        alert("look password is being sent ... " + this.state.password);
+        fetch("/api/users/add", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                fName: this.state.fName,
+                lName: this.state.lName,
+                email: this.state.email,
+                password: this.state.password,
+            }),
+        })
+            .then((res) => res.json())
+            .then(console.log)
+            .catch(console.log);
+    };
+
+    render() {
+        return (
+            <div>
+                <div className="account">
+                    <form className="account-form" onSubmit={this.handleSubmit}>
+                        <input
+                            type="text"
+                            placeholder="First Name"
+                            className="input"
+                            onChange={(event) =>
+                                this.handleChange(event, "fName")
+                            }
+                        />
+                        <input
+                            type="text"
+                            placeholder="Last Name"
+                            className="input"
+                            onChange={(event) =>
+                                this.handleChange(event, "lName")
+                            }
+                        />
+                        <input
+                            type="text"
+                            placeholder="Email"
+                            className="input"
+                            id="email"
+                            onChange={(event) =>
+                                this.handleChange(event, "email")
+                            }
+                        />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            className="input"
+                            onChange={(event) =>
+                                this.handleChange(event, "password")
+                            }
+                        />
+                        <input
+                            type="password"
+                            placeholder="Confirm Password"
+                            className="input"
+                            onChange={(event) =>
+                                this.handleChange(event, "password2")
+                            }
+                        />
+                        <button className="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default Signup;
