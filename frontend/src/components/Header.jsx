@@ -4,6 +4,7 @@ import { Link as ScrollLink } from "react-scroll";
 
 class Header extends Component {
     render() {
+        const { loginInfo } = this.props;
         return (
             <header>
                 <div className="container container-header">
@@ -30,18 +31,32 @@ class Header extends Component {
                                 </Link>
                                 <div className="line"></div>
                             </li>
-                            <li>
-                                <Link to="/login" className="link">
-                                    Login
-                                </Link>
-                                <div className="line"></div>
-                            </li>
-                            <li>
-                                <Link to="/signup" className="link">
-                                    Sign Up
-                                </Link>
-                                <div className="line"></div>
-                            </li>
+                            {loginInfo.isLoggedIn ? (
+                                <li>
+                                    <div className="user">
+                                        <Link to="/login" className="link logged-in" 
+                                        title={`logged in as ${loginInfo.user.firstName}`}>
+                                            {loginInfo.user.firstName}
+                                        </Link>
+                                    </div>
+                                    {/* <div className="line"></div> */}
+                                </li>
+                            ) : (
+                                <ul>
+                                    <li>
+                                        <Link to="/login" className="link">
+                                            Login
+                                        </Link>
+                                        <div className="line"></div>
+                                    </li>
+                                    <li>
+                                        <Link to="/signup" className="link">
+                                            Sign Up
+                                        </Link>
+                                        <div className="line"></div>
+                                    </li>
+                                </ul>
+                            )}
                         </ul>
                     </nav>
                 </div>

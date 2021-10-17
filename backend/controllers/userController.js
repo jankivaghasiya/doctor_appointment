@@ -30,3 +30,11 @@ export const addUser = asyncHandler(async (req, res) => {
     });
     res.json({ message: "user added successfully" });
 });
+
+export const doesExist = asyncHandler(async (req, res) => {
+    const result = await User.findOne({
+        email: req.body.email,
+        password: req.body.password,
+    });
+    res.json(result);
+});

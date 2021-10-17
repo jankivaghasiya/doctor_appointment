@@ -1,7 +1,7 @@
 :root {
     --light_blue: rgb(125, 190, 190);
     --dark_blue: rgb(62, 165, 165);
-    --solid_blue: teal;
+    --solid_blue: rgb(38, 126, 126);
 }
 
 /* Header */
@@ -55,14 +55,13 @@ nav ul li .link {
     text-transform: uppercase;
     text-decoration: none;
     color: white;
-    align-self: center;
 }
 
 .line {
     margin-top: 10px;
     height: 3px;
     width: 0px;
-    background-color: black;
+    background-color: white;
     transition: width 0.5s ease-in;
     border-radius: 10px;
 }
@@ -73,8 +72,19 @@ nav ul li .link:active + .line {
     width: 100%;
 }
 
-nav ul li .link:hover {
+/* nav ul li .link:hover {
     color: black;
+} */
+.user {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logged-in {
+    background-color: black;
+    border-radius: 8px;
+    padding: 5px;
 }
 
 /* Utility Classes */
@@ -135,6 +145,10 @@ nav ul li .link:hover {
         background-color: black;
     }
 
+    nav ul ul {
+        width: 100%;
+    }
+    
     nav ul li .link {
         /* box-sizing: border-box; */
         padding: 3px;
@@ -350,6 +364,24 @@ footer a:hover {
     }
 }
 
+/* appointment */
+
+.appointment {
+    display: flex;
+    flex-direction: column;
+}
+
+/* docotr's informationa */
+
+.doctor-info {
+    margin: 15px;
+    height: 400px;
+    width: 80%;
+    background-color: rgb(223, 219, 219);
+    border-radius: 10px;
+    align-self: center;
+}
+
 /* slots information */
 
 .loading {
@@ -360,6 +392,15 @@ footer a:hover {
 
 .slots-info {
     width: 95%;
+}
+
+.colour-sign {
+    margin-left: 20px;
+    display: flex;
+}
+
+.colour-sign p {
+    margin: 10px 30px 10px 5px;
 }
 
 .day-info {
@@ -379,12 +420,25 @@ footer a:hover {
     flex-wrap: wrap;
 }
 
+.available {
+    background-color: var(--solid_blue);
+    cursor: pointer;
+}
+
+.unavailable {
+    background-color: var(--light_blue);
+}
+
 .slot {
     padding: 10px 15px;
     margin: 10px;
+    border: none;
     border-radius: 5px;
-    background-color: #0a77cf;
     font-size: 18px;
     color: white;
     text-decoration: none;
+}
+
+.sign {
+    height: 25px;
 }

@@ -1,22 +1,39 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 
 class Login extends Component {
-    state = {
-        email: "",
-        password: "",
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: "",
+            password: "",
+        };
+    }
 
     handleChange = (event, propperty) => {
         this.setState({ [propperty]: event.target.value });
     };
 
-    addUser = () => {
-        
-    };
-
     handleSubmit = (event) => {
         event.preventDefault();
-        this.addUser();
+        fetch("/api/users/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: this.state.email,
+                password: this.state.password,
+            }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data !== null) {
+                    this.props.onLogin(data);
+                    this.props.history.push("/");
+                }
+            })
+            .catch(console.log);
     };
 
     render() {
@@ -44,4 +61,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

@@ -6,12 +6,6 @@ class Specialists extends Component {
     render() {
         return (
             <>
-                <img
-                    src={require("../asset/slider_imgs/main.jpg").default}
-                    alt="1"
-                    width="100%"
-                    height="20%"
-                />
                 <h1 className="heading-font" id="categories">
                     Our Specialists
                 </h1>
@@ -60,7 +54,8 @@ class Specialists extends Component {
                     <div className="cat">
                         <img alt="" src={IMAGES.Neurologist} />
                         <div>
-                            <Link to="/" className="Link">
+                            <Link to={{pathname: 'appointment/616417d9e77980076f4abb28'}} 
+                            className="Link">
                                 Neurologist
                             </Link>
                         </div>
