@@ -9,7 +9,7 @@ const doctorSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    specialization: {
+    speciality: {
         type: String,
         required: true,
     },

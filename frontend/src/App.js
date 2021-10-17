@@ -4,7 +4,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import "./App.css";
 import Mainpage from "./components/MainPage";
-import Appointment from "./components/Appointment";
+// import Appointment from "./components/Appointment";
 
 class App extends Component {
     constructor(props) {
