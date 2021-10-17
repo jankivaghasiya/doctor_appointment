@@ -21,7 +21,7 @@ class Header extends Component {
                             </li>
                             <li>
                                 <ScrollLink to="categories" className="link">
-                                    Categories
+                                    specialists
                                 </ScrollLink>
                                 <div className="line"></div>
                             </li>
@@ -36,7 +36,7 @@ class Header extends Component {
                                     <div className="user">
                                         <Link to="/login" className="link logged-in" 
                                         title={`logged in as ${loginInfo.user.firstName}`}>
-                                            {loginInfo.user.firstName}
+                                            {loginInfo.user.userName}
                                         </Link>
                                     </div>
                                     {/* <div className="line"></div> */}

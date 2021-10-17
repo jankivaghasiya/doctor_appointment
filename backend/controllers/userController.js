@@ -26,6 +26,7 @@ export const addUser = asyncHandler(async (req, res) => {
         firstName: req.body.fName,
         lastName: req.body.lName,
         email: req.body.email,
+        userName: req.body.uName,
         password: req.body.password,
     });
     res.json({ message: "user added successfully" });

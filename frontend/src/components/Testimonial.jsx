@@ -8,7 +8,7 @@ class Testimonial extends Component {
   render() {
     return (
         <div>
-        <h1 className="heading-font" id="categories">TestiMonials</h1>
+        <h1 className="heading-font">TestiMonials</h1>
       <Carousel
         showArrows={true}
         infiniteLoop={true}
@@ -18,19 +18,18 @@ class Testimonial extends Component {
         interval={6100}
       >      
         <div>
-          <img src={IMAGES1.img1} />
+          <img src={IMAGES1.img1} alt=""/>
           <div className="myCarousel">
             <h3>Shirley Fultz</h3>
             <h4>Designer</h4>
             <p>
             I have been using this app from quiet long but recently with Covid Scenario it became super helpful with online doctor consultation, YouHeal has experienced doctors who speak well and understand the situation well before giving any prescription.
-         
             </p>
           </div>
         </div>
 
         <div>
-          <img src={IMAGES1.img2} />
+          <img src={IMAGES1.img2} alt=""/>
           <div className="myCarousel">
             <h3>Daniel Keystone</h3>
             <h4>Designer</h4>
@@ -41,7 +40,7 @@ class Testimonial extends Component {
         </div>
 
         <div>
-          <img src={IMAGES1.img3} />
+          <img src={IMAGES1.img3} alt=""/>
           <div className="myCarousel">
             <h3>Theo Sorel</h3>
             <h4>Designer</h4>

@@ -4,6 +4,7 @@ import React, { Component } from "react";
 class Signup extends Component {
     state = {
         fName: "",
+        uName: "",
         lName: "",
         email: "",
         password: "",
@@ -25,6 +26,7 @@ class Signup extends Component {
             body: JSON.stringify({
                 fName: this.state.fName,
                 lName: this.state.lName,
+                uName: this.state.uName,
                 email: this.state.email,
                 password: this.state.password,
             }),
@@ -62,6 +64,14 @@ class Signup extends Component {
                             id="email"
                             onChange={(event) =>
                                 this.handleChange(event, "email")
+                            }
+                        />
+                        <input
+                            type="text"
+                            placeholder="user Name"
+                            className="input"
+                            onChange={(event) =>
+                                this.handleChange(event, "uName")
                             }
                         />
                         <input

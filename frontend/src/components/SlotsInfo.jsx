@@ -106,7 +106,7 @@ class Slotsinfo extends Component {
 
         for (let d = 0; d < 2; d++) {
             for (let s = 0; s < 8; s++) {
-                if (1 === d || this.getCurrentTime() < slots[d][s].startTime) {
+                if (1 === d || (new Date()).getDay() === 0 || this.getCurrentTime() < slots[d][s].startTime) {
                     promises.push(
                         fetch(
                             `/api/bookings/${this.props.doctorId}?date=${this.state.date[d]}&slot=${s}`
