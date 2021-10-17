@@ -208,7 +208,13 @@ nav ul li .link:active + .line {
     border: none;
     border-radius: 5px;
 }
-
+.mainimage{
+    text-align:center;
+    display:block;
+    margin:auto;
+    width: 70%;
+    height: 20%;
+}
 /* Categories */
 
 .heading-font {
