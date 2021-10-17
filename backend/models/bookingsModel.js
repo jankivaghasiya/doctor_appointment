@@ -3,20 +3,28 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema(
-  {
-    doctor: {
-      type: Schema.Types.ObjectId,
-      ref: "Doctor",
+    {
+        doctor: {
+            type: Schema.Types.ObjectId,
+            ref: "Doctor",
+            required: true,
+        },
+        patient: {
+            type: Schema.Types.ObjectId,
+            ref: "Patient",
+            required: true,
+        },
+        date: {
+            type: String,
+            required: true,
+        },
+        slot_no: {
+            type: Number,
+            required: true,
+        },
     },
-    patient: {
-      type: Schema.Types.ObjectId,
-      ref: "Patient",
-    },
-    date: String,
-    slot_no: Number,
-  },
 
-  { timestamps: true }
+    { timestamps: true }
 );
 
 bookingSchema.index({ doctor: 1, date: 1, slot_no: 1 }, { unique: true });

@@ -3,6 +3,6 @@ import express from 'express';
 const router = express.Router();
 
 router.route('/:id').get(isSlotAvailable);
-router.route('/:id/:patientId').get(addSlot);
+router.route('/').post(addSlot);
 
 export default router;

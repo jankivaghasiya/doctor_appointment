@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class Slotsinfo extends Component {
     constructor(props) {
@@ -125,34 +125,69 @@ class Slotsinfo extends Component {
         );
     };
 
-    render() {
-        let avail1 = [];
-        let avail2 = [];
-        if (this.state.isLoaded) {
-            avail1 = this.state.slots[0].filter((s) => s.isAvl);
-            avail2 = this.state.slots[1].filter((s) => s.isAvl);
-        }
+    bookSlot = (day, slot) => {
+        const { doctorId, userId } = this.props;
+        fetch(
+            `/api/bookings`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    doctor: doctorId,
+                    patient: userId,
+                    date: this.state.date[day],
+                    slot: slot,
+                }),
+            }
+        )
+            .then((res) => res.json())
+            .then((data) => alert("success"))
+            .catch((err) => alert(err));
+    };
 
+    render() {
         return (
             <div className="appointment">
                 {this.state.isLoaded === false ? (
                     <div className="loading">Loading Available slots...</div>
                 ) : (
                     <div className="slots-info">
+                        <div className="colour-sign">
+                            <div className="available slot sign"></div>
+                            <p>available slots</p>
+                            <div className="unavailable slot sign"></div>
+                            <p>unavailable slots</p>
+                        </div>
                         <div className="day-info">
                             <div className="date-day">
                                 {this.state.date[0]} {this.state.day[0]}
                             </div>
                             <div className="slots">
-                                {0 === avail1.length ? (
-                                    <div className="loading">No slots available</div>
-                                ) : (
-                                    avail1.map((s, index) => (
-                                        <Link to="./" className="slot" key={index}>
+                                {this.state.slots[0].map((s, index) => {
+                                    if (s.isAvl) {
+                                        return (
+                                            <button
+                                                className="available slot"
+                                                key={index}
+                                                onClick={() =>
+                                                    this.bookSlot(0, index)
+                                                }
+                                            >
+                                                {this.displayDate(s.startTime)}
+                                            </button>
+                                        );
+                                    }
+                                    return (
+                                        <div
+                                            className="unavailable slot"
+                                            key={index}
+                                        >
                                             {this.displayDate(s.startTime)}
-                                        </Link>
-                                    ))
-                                )}
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
 
@@ -161,15 +196,29 @@ class Slotsinfo extends Component {
                                 {this.state.date[1]} {this.state.day[1]}
                             </div>
                             <div className="slots">
-                                {0 === avail2.length ? (
-                                    <div className="loading">No slots available</div>
-                                ) : (
-                                    avail2.map((s, index) => (
-                                        <Link to="./" className="slot" key={index}>
+                                {this.state.slots[1].map((s, index) => {
+                                    if (s.isAvl) {
+                                        return (
+                                            <button
+                                                className="available slot"
+                                                key={index}
+                                                onClick={() =>
+                                                    this.bookSlot(1, index)
+                                                }
+                                            >
+                                                {this.displayDate(s.startTime)}
+                                            </button>
+                                        );
+                                    }
+                                    return (
+                                        <div
+                                            className="unavailable slot"
+                                            key={index}
+                                        >
                                             {this.displayDate(s.startTime)}
-                                        </Link>
-                                    ))
-                                )}
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
