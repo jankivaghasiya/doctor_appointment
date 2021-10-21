@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import "./myBookings.css";
 
 class Mybookings extends Component {
     state = {

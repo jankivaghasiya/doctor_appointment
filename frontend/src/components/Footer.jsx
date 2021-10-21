@@ -19,25 +19,25 @@ class Footer extends Component {
                 <Link to="/">+91 98765 43210</Link>
               </div>
               <div className="email">
-                <Link to="/"> youheal@gmail.com</Link>
+                <Link to="/"> jagdishtilokani01@gmail.com</Link>
               </div>
             </div>
             <div className="right box">
               <div className="topic"> Social Media </div>
               <div className="media-icons">
-                <Link to="/">
+                <Link to={{ pathname: "https://www.facebook.com/"}} target="_blank">
                   <i className="fab fa-facebook-f"></i>
                 </Link>
-                <Link to="/">
+                <Link to={{ pathname: "https://www.instagram.com/"}} target="_blank">
                   <i className="fab fa-instagram"></i>
                 </Link>
-                <Link to="/">
+                <Link to={{ pathname: "https://twitter.com/"}} target="_blank">
                   <i className="fab fa-twitter"></i>
                 </Link>
-                <Link to="/">
+                <Link to={{ pathname: "https://www.youtube.com/"}} target="_blank">
                   <i className="fab fa-youtube"></i>
                 </Link>
-                <Link to="/">
+                <Link to={{ pathname: "https://www.linkedin.com/"}} target="_blank">
                   <i className="fab fa-linkedin-in"></i>
                 </Link>
               </div>

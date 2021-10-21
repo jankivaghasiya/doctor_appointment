@@ -5,7 +5,7 @@ class Mainimage extends Component {
         return (
             <div>
             <img
-                src={require("../asset/slider_imgs/main.jpg").default}
+                src={require("../asset/main_image.png").default}
                 alt="1"
                 className="mainimage"
             />

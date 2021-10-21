@@ -143,7 +143,7 @@ nav ul li .link:active + .line {
     }
 
     .drop-down {
-        top: 200px;
+        top: 185px;
         right: 35%;
         left: 35%;
     }
@@ -260,7 +260,7 @@ nav ul li .link:active + .line {
 .mainimage {
     display: block;
     margin: auto;
-    width: 70%;
+    width: 100%;
 }
 
 /* Categories */
@@ -331,8 +331,7 @@ footer .content {
 
 footer .content p,
 footer .content a {
-    color: black;
-    font-weight: 600;
+    color: white;
     text-align: left;
     line-height: 32px;
 }
@@ -345,7 +344,7 @@ footer .content .box {
 footer .content .topic {
     font-size: 24px;
     font-weight: bold;
-    color: white;
+    color: black;
     margin-bottom: 16px;
 }
 
@@ -366,13 +365,13 @@ footer .content .media-icons a {
     text-align: center;
     line-height: 43px;
     border-radius: 5px;
-    border: 2px solid #111;
+    border: 2px solid white;
     margin: 0 10px 10px 10px;
     transition: all 0.3s ease;
 }
 
 footer .content .media-icons a:hover {
-    border-color: white;
+    border-color: black;
 }
 
 footer a {
@@ -380,7 +379,7 @@ footer a {
 }
 
 footer a:hover {
-    color: white;
+    color: black;
 }
 
 @media (max-width: 1100px) {
@@ -426,7 +425,7 @@ footer a:hover {
 .doctor-info {
     margin: 15px;
     width: 80%;
-    background-color: rgb(207, 203, 203);
+    background-color: rgb(224, 218, 218);
     border-radius: 10px;
     align-self: center;
     padding: 20px;
@@ -434,7 +433,7 @@ footer a:hover {
 
 .doctor-name {
     text-align: center;
-    color: rgb(80, 142, 192);
+    color: black;
     margin: 10px;
 }
 
@@ -444,6 +443,11 @@ footer a:hover {
     font-weight: 600;
     display: flex;
     flex-wrap: wrap;
+    color: rgb(168, 93, 100);
+}
+
+.doctor-attribute-key {
+    color:rgb(19, 83, 73);
 }
 
 .doctor-attribute span {
@@ -480,6 +484,7 @@ footer a:hover {
     padding: 10px;
     font-size: 18px;
     font-weight: bold;
+    color: rgb(143, 71, 78);
 }
 
 .slots {
@@ -556,4 +561,177 @@ footer a:hover {
     width: 100%;
     justify-content: center;
     align-items: center;
+}
+
+/* my bookings */
+
+.bookings-heading {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: rgb(209, 209, 209);
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.bookings {
+    margin: auto;
+    width: 90%;
+    background-color: var(--light_blue);
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.booking {
+    display: flex;
+    background-color: rgb(209, 209, 209);
+    flex-wrap: wrap;
+    margin: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.booking span {
+    padding: 10px;
+    text-align: center;
+}
+
+.cancel {
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin: auto 5px;
+    color: white;
+    cursor: pointer;
+}
+
+/* testinomial  */
+
+.carousel-root {
+    width: 64% !important;
+    margin: 25px auto;
+    margin-top: 3% !important;
+}
+
+.carousel .slide {
+    background: #fff !important;
+    color: black;
+    height: 100%;
+}
+
+.carousel .slide img {
+    width: 200px;
+    border-radius: 50%;
+}
+
+.myCarousel {
+    background: #fafafa;
+    margin-top: -6%;
+    width: 64%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 6%;
+    padding-bottom: 8%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 1px solid #ddd;
+    height: 300px;
+}
+
+.carousel .control-dots {
+    padding-left: 5px !important;
+    outline: 0;
+    bottom: 5% !important;
+}
+
+.myCarousel h3 {
+    color: #222;
+    font-weight: 100;
+    letter-spacing: 0.2px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 17px;
+}
+
+.myCarousel h4 {
+    text-transform: uppercase;
+    margin-top: 0;
+    padding-top: 0;
+    font-weight: 500;
+    color: #787878;
+    font-size: 14px;
+}
+
+.myCarousel p {
+    font-weight: 100 !important;
+    line-height: 29px !important;
+    color: #222;
+    font-size: 15px;
+    font-family: sans-serif;
+    max-height: 67px;
+}
+
+.myCarousel p:before {
+    content: "“";
+    color: #aaa;
+    font-size: 26px;
+    font-family: monospace;
+    font-weight: 100;
+}
+
+.myCarousel p:after {
+    content: "”";
+    color: #aaa;
+    font-size: 26px;
+    font-family: monospace;
+    font-weight: 100;
+    line-height: 0;
+}
+
+.carousel .control-dots .dot {
+    box-shadow: none !important;
+    background: #454545 !important;
+    outline: 0;
+}
+
+.carousel.carousel-slider .control-arrow {
+    background: #000 !important;
+    height: 50px !important;
+    position: absolute;
+    top: 35% !important;
+}
+
+@media only screen and (max-width: 934px) {
+    .carousel-root {
+        outline: 0;
+        width: 93% !important;
+        margin: auto !important;
+    }
+
+    .carousel.carousel-slider .control-arrow {
+        display: none !important;
+    }
+    .myCarousel {
+        background: #fafafa;
+        margin-top: -9%;
+        width: 88%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 8%;
+        padding-bottom: 12.5%;
+        padding-left: 5%;
+        padding-right: 5%;
+        border: 1px solid #ddd;
+        height: 269px;
+    }
+
+    .carousel .slide img {
+        width: 24% !important;
+        border-radius: 50%;
+    }
 }
