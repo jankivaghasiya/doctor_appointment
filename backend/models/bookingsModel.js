@@ -11,7 +11,7 @@ const bookingSchema = new Schema(
         },
         patient: {
             type: Schema.Types.ObjectId,
-            ref: "Patient",
+            ref: "User",
             required: true,
         },
         date: {
@@ -21,6 +21,8 @@ const bookingSchema = new Schema(
         slot_no: {
             type: Number,
             required: true,
+            min: [0, "invalid slot"],
+            max: [7, "invalid slot"]
         },
     },
 

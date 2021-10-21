@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
 
 class Header extends Component {
     render() {
@@ -15,29 +14,48 @@ class Header extends Component {
                         <ul>
                             <li>
                                 <Link to="/" className="link">
-                                    Home
+                                    HOME
                                 </Link>
                                 <div className="line"></div>
                             </li>
                             <li>
-                                <ScrollLink to="categories" className="link">
-                                    Categories
-                                </ScrollLink>
-                                <div className="line"></div>
-                            </li>
-                            <li>
                                 <Link className="link" to="/">
-                                    contact us
+                                    CONTACT US
                                 </Link>
                                 <div className="line"></div>
                             </li>
                             {loginInfo.isLoggedIn ? (
                                 <li>
                                     <div className="user">
-                                        <Link to="/login" className="link logged-in" 
-                                        title={`logged in as ${loginInfo.user.firstName}`}>
-                                            {loginInfo.user.firstName}
+                                        <Link
+                                            to="#"
+                                            className="link logged-in"
+                                            title={`logged in as ${loginInfo.user.firstName}`}
+                                        >
+                                            {loginInfo.user.userName}
                                         </Link>
+                                        <div className="drop-down">
+                                            <i className="account-icon dropdown-item fas">
+                                                &#xf2bd;
+                                            </i>
+                                            <div className="user-name dropdown-item">
+                                                {loginInfo.user.firstName}
+                                            </div>
+
+                                            <Link
+                                                to={`/mybookings/${loginInfo.user._id}`}
+                                                className="dropdown-item"
+                                            >
+                                                My Bookings
+                                            </Link>
+                                            <Link
+                                                to=""
+                                                className="dropdown-item"
+                                                onClick={this.props.onLogout}
+                                            >
+                                                Logout
+                                            </Link>
+                                        </div>
                                     </div>
                                     {/* <div className="line"></div> */}
                                 </li>
@@ -45,13 +63,13 @@ class Header extends Component {
                                 <ul>
                                     <li>
                                         <Link to="/login" className="link">
-                                            Login
+                                            LOGIN
                                         </Link>
                                         <div className="line"></div>
                                     </li>
                                     <li>
                                         <Link to="/signup" className="link">
-                                            Sign Up
+                                            SIGN UP
                                         </Link>
                                         <div className="line"></div>
                                     </li>
