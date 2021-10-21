@@ -30,6 +30,6 @@ const doctorSchema = mongoose.Schema({
     timestamps: true
 })
 
-const Doctor = mongoose.model('doctor', doctorSchema)
+const Doctor = mongoose.model('Doctor', doctorSchema)
 
 export default Doctor;

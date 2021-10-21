@@ -1,9 +1,10 @@
 import Doctor from "../models/doctorsModel.js";
-import asyncHandler from "express-async-handler";
 
-export const getDoctorById = asyncHandler(async (req, res) => {
-  Doctor.findOne({ _id: req.params.id }, (err, data) => {
-    if (err) return;
-    res.json(data);
-  });
-});
+export const getDoctorById = (req, res) => {
+    Doctor.findById(req.params.id)
+        .then((data) => res.status(200).json(data))
+        .catch((err) => {
+            const error = { message: "invalid id" };
+            res.status(400).json(error);
+        });
+};
