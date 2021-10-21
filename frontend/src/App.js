@@ -2,16 +2,24 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import "./App.css";
 import Mainpage from "./components/MainPage";
-// import Appointment from "./components/Appointment";
+import "./App.css";
 
 class App extends Component {
     constructor(props) {
         super(props);
+        let isLoggedIn = false;
+        let user = localStorage.getItem("user");
+        if (user) {
+            isLoggedIn = true;
+            user = JSON.parse(user);
+        } else {
+            user = {};
+        }
+
         this.state = {
-            isLoggedIn: false,
-            user: {},
+            isLoggedIn: isLoggedIn,
+            user: user,
         };
     }
 
@@ -22,21 +30,27 @@ class App extends Component {
         });
     };
 
+    handleLogout = () => {
+        localStorage.clear();
+        this.setState({ isLoggedIn: false, user: {} });
+    };
+
     render() {
         return (
             <Router>
                 <Switch>
-                    <Route path="/login">
+                    <Route path="/login" exact>
                         <Login onLogin={this.setUser} />
                     </Route>
-                    <Route path="/signup">
+                    <Route path="/signup" exact>
                         <SignUp />
                     </Route>
-                    {/* <Route path="/appointment/:doctorId">
-                        <Appointment userId={this.state.user._id}/>
-                    </Route> */}
                     <Route path="/">
-                        <Mainpage loginInfo={this.state} userId={this.state.user._id}/>
+                        <Mainpage
+                            loginInfo={this.state}
+                            userId={this.state.user._id}
+                            onLogout={this.handleLogout}
+                        />
                     </Route>
                 </Switch>
             </Router>

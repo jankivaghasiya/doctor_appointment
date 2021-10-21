@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 
 class Slotsinfo extends Component {
     constructor(props) {
@@ -40,6 +39,7 @@ class Slotsinfo extends Component {
             date: dt,
             day: day,
             slots: [[], []],
+            selection: {},
         };
     }
 
@@ -106,7 +106,11 @@ class Slotsinfo extends Component {
 
         for (let d = 0; d < 2; d++) {
             for (let s = 0; s < 8; s++) {
-                if (1 === d || (new Date()).getDay() === 0 || this.getCurrentTime() < slots[d][s].startTime) {
+                if (
+                    1 === d ||
+                    new Date().getDay() === 0 ||
+                    this.getCurrentTime() < slots[d][s].startTime
+                ) {
                     promises.push(
                         fetch(
                             `/api/bookings/${this.props.doctorId}?date=${this.state.date[d]}&slot=${s}`
@@ -125,26 +129,44 @@ class Slotsinfo extends Component {
         );
     };
 
-    bookSlot = (day, slot) => {
-        const { doctorId, userId } = this.props;
-        fetch(
-            `/api/bookings`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    doctor: doctorId,
-                    patient: userId,
-                    date: this.state.date[day],
-                    slot: slot,
-                }),
-            }
-        )
+    bookSlot = () => {
+        this.closeModal();
+        const { doctorId } = this.props;
+        const userId = this.props.loginInfo.user._id;
+        fetch(`/api/bookings`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                doctor: doctorId,
+                patient: userId,
+                date: this.state.date[this.state.selection.day],
+                slot: this.state.selection.slot,
+            }),
+        })
             .then((res) => res.json())
-            .then((data) => alert("success"))
-            .catch((err) => alert(err));
+            .then((data) => this.props.remount())
+            .catch((err) => console.log(err));
+    };
+
+    selectSlot = (day, slot) => {
+        let selection = {};
+        if (this.props.loginInfo.isLoggedIn === false) {
+            selection.message = "Please login first";
+        } else {
+            selection.day = day;
+            selection.slot = slot;
+            selection.message = "Confirm booking";
+        }
+        this.setState({ selection });
+        let modal = document.getElementById("modal");
+        modal.style.display = "flex";
+    };
+
+    closeModal = () => {
+        let modal = document.getElementById("modal");
+        modal.style.display = "none";
     };
 
     render() {
@@ -172,7 +194,7 @@ class Slotsinfo extends Component {
                                                 className="available slot"
                                                 key={index}
                                                 onClick={() =>
-                                                    this.bookSlot(0, index)
+                                                    this.selectSlot(0, index)
                                                 }
                                             >
                                                 {this.displayDate(s.startTime)}
@@ -203,7 +225,7 @@ class Slotsinfo extends Component {
                                                 className="available slot"
                                                 key={index}
                                                 onClick={() =>
-                                                    this.bookSlot(1, index)
+                                                    this.selectSlot(1, index)
                                                 }
                                             >
                                                 {this.displayDate(s.startTime)}
@@ -223,6 +245,24 @@ class Slotsinfo extends Component {
                         </div>
                     </div>
                 )}
+                <div id="modal" className="modal">
+                    <div className="modal-content">
+                        <div className="close-modal" onClick={this.closeModal}>
+                            &times;
+                        </div>
+                        <p className="modal-message">
+                            {this.state.selection.message}
+                        </p>
+                        {this.state.selection.slot ? (
+                            <button
+                                className="available slot"
+                                onClick={this.bookSlot}
+                            >
+                                confirm
+                            </button>
+                        ) : null}
+                    </div>
+                </div>
             </div>
         );
     }
