@@ -57,7 +57,6 @@ class Header extends Component {
                                             </Link>
                                         </div>
                                     </div>
-                                    {/* <div className="line"></div> */}
                                 </li>
                             ) : (
                                 <ul>
