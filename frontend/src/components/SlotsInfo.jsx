@@ -154,6 +154,7 @@ class Slotsinfo extends Component {
         let selection = {};
         if (this.props.loginInfo.isLoggedIn === false) {
             selection.message = "Please login first";
+            selection.slot = -1;
         } else {
             selection.day = day;
             selection.slot = slot;
@@ -253,7 +254,7 @@ class Slotsinfo extends Component {
                         <p className="modal-message">
                             {this.state.selection.message}
                         </p>
-                        {this.state.selection.slot ? (
+                        {this.state.selection.slot >= 0 ? (
                             <button
                                 className="available slot"
                                 onClick={this.bookSlot}

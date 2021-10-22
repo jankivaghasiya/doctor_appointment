@@ -9,6 +9,7 @@ class Signup extends Component {
         email: "",
         password: "",
         password2: "",
+        contactNo: "",
         errors: {},
     };
 
@@ -35,6 +36,7 @@ class Signup extends Component {
                 uName: this.state.uName,
                 email: this.state.email,
                 password: this.state.password,
+                contactNo: this.state.contactNo,
             }),
         })
             .then((res) => {
@@ -80,12 +82,22 @@ class Signup extends Component {
                                 type="text"
                                 placeholder="Email"
                                 className="input"
-                                id="email"
                                 onChange={(event) =>
                                     this.handleChange(event, "email")
                                 }
                             />
                             <p className="error">{errors.email}</p>
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Contact Number"
+                                className="input"
+                                onChange={(event) =>
+                                    this.handleChange(event, "contactNo")
+                                }
+                            />
+                            <p className="error">{errors.contactNo}</p>
                         </div>
                         <div>
                             <input

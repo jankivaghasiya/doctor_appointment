@@ -7,6 +7,7 @@ const handleError = (err) => {
         userName: "",
         email: "",
         password: "",
+        contactNo: "",
     };
 
     if (err.code === 11000) {
@@ -18,13 +19,15 @@ const handleError = (err) => {
         const { errors } = err;
         if (errors.firstName)
             error.firstName = errors.firstName.properties.message;
-        if (err.errors.lastName)
+        if (errors.lastName)
             error.lastName = errors.lastName.properties.message;
-        if (err.errors.userName)
+        if (errors.userName)
             error.userName = errors.userName.properties.message;
-        if (err.errors.email) error.email = errors.email.properties.message;
-        if (err.errors.password)
+        if (errors.email) error.email = errors.email.properties.message;
+        if (errors.password)
             error.password = errors.password.properties.message;
+        if (errors.contactNo)
+            error.contactNo = errors.contactNo.properties.message;
     }
 
     return error;
@@ -50,6 +53,7 @@ export const addUser = (req, res) => {
         email: req.body.email,
         userName: req.body.uName,
         password: req.body.password,
+        contactNo: req.body.contactNo,
     })
         .then((user) => res.status(200).json(user))
         .catch((err) => res.status(400).json(handleError(err)));

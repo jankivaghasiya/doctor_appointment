@@ -224,11 +224,16 @@ nav ul li .link:active + .line {
     align-items: center;
 }
 
+.account-form div{
+    width: 100%;
+}
+
 .input {
     margin-top: 15px;
     padding: 5px;
     height: 35px;
-    width: 350px;
+    min-width: 350px;
+    width: 100%;
     border: none;
     letter-spacing: 1px;
     font-size: 18px;
@@ -433,7 +438,7 @@ footer a:hover {
 
 .doctor-name {
     text-align: center;
-    color: black;
+    color: rgb(19, 83, 73);
     margin: 10px;
 }
 
@@ -443,7 +448,7 @@ footer a:hover {
     font-weight: 600;
     display: flex;
     flex-wrap: wrap;
-    color: rgb(168, 93, 100);
+    color: rgb(0, 0, 0);
 }
 
 .doctor-attribute-key {
@@ -484,7 +489,7 @@ footer a:hover {
     padding: 10px;
     font-size: 18px;
     font-weight: bold;
-    color: rgb(143, 71, 78);
+    color: black;
 }
 
 .slots {

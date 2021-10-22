@@ -18,6 +18,13 @@ const userSchema = mongoose.Schema(
             minlength: [6, "username should be atleast 6 characters long"],
             maxlength: [10, "username cannot be more than 10 characters"],
         },
+        contactNo: {
+            type: String,
+            required: [true, "Contact number required"],
+            validate: [(value) =>
+                validator.isMobilePhone(value, 'en-IN')
+                , "Contact number is not valid"],
+        },
         email: {
             type: String,
             required: [true, "email cannot be empty"],
