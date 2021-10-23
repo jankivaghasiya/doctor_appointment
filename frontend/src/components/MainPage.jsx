@@ -7,7 +7,6 @@ import { Route, Switch } from "react-router-dom";
 import Appointment from "./Appointment";
 import Mybookings from "./MyBookings";
 import Pagenotfound from "./PageNotFound";
-import OurTeam from "./ourTeam";
 
 class Mainpage extends Component {
   state = {
