@@ -5,6 +5,7 @@ class Mybookings extends Component {
     state = {
         bookings: null,
         selection: null,
+        controller: new AbortController(),
     };
 
     componentDidMount = () => {
@@ -12,7 +13,9 @@ class Mybookings extends Component {
             this.props.history.push("/not-found");
             return;
         }
-        fetch(`/api/bookings/get/${this.props.match.params.userId}`)
+        fetch(`/api/bookings/get/${this.props.match.params.userId}`, {
+            signal: this.state.controller.signal,
+        })
             .then((res) => {
                 if (res.status === 400) {
                     this.props.history.push("/not-found");
@@ -22,7 +25,8 @@ class Mybookings extends Component {
             })
             .then((bookings) => {
                 this.setState({ bookings });
-            });
+            })
+            .catch(console.log);
     };
 
     showModal = (index) => {
@@ -43,13 +47,12 @@ class Mybookings extends Component {
         fetch(`/api/bookings/cancel/${id}`, {
             method: "DELETE",
         })
-            .then((data) =>
-                // this.props.history.push(
-                //     `/mybookings/${this.props.match.params.userId}`
-                // )
-                this.props.remount()
-            )
-            .catch((err) => console.log("unknown error occurred"));
+            .then((data) => this.props.remount())
+            .catch((err) => console.log(err));
+    };
+
+    componentWillUnmount = () => {
+        this.state.controller.abort();
     };
 
     render() {

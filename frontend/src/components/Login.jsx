@@ -8,6 +8,7 @@ class Login extends Component {
             email: "",
             password: "",
             errors: {},
+            controller: new AbortController(),
         };
     }
 
@@ -37,6 +38,7 @@ class Login extends Component {
                 email: this.state.email,
                 password: this.state.password,
             }),
+            signal: this.state.controller.signal,
         })
             .then((res) => res.json())
             .then((data) => {
@@ -53,6 +55,10 @@ class Login extends Component {
                 }
             })
             .catch(console.log);
+    };
+
+    componentWillUnmount = () => {
+        this.state.controller.abort();
     };
 
     render() {

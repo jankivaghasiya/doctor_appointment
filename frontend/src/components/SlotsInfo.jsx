@@ -3,6 +3,7 @@ import React, { Component } from "react";
 class Slotsinfo extends Component {
     constructor(props) {
         super(props);
+        const controller = new AbortController();
 
         const current = new Date();
         let day_idx = current.getDay();
@@ -40,6 +41,7 @@ class Slotsinfo extends Component {
             day: day,
             slots: [[], []],
             selection: {},
+            controller: controller,
         };
     }
 
@@ -113,7 +115,8 @@ class Slotsinfo extends Component {
                 ) {
                     promises.push(
                         fetch(
-                            `/api/bookings/${this.props.doctorId}?date=${this.state.date[d]}&slot=${s}`
+                            `/api/bookings/${this.props.doctorId}?date=${this.state.date[d]}&slot=${s}`,
+                            { signal: this.state.controller.signal }
                         )
                             .then((res) => res.json())
                             .then((result) => {
@@ -124,9 +127,9 @@ class Slotsinfo extends Component {
             }
         }
 
-        Promise.all(promises).then(() =>
-            this.setState({ slots: slots, isLoaded: true })
-        );
+        Promise.all(promises)
+            .then(() => this.setState({ slots: slots, isLoaded: true }))
+            .catch(console.log);
     };
 
     bookSlot = () => {
@@ -170,6 +173,9 @@ class Slotsinfo extends Component {
         modal.style.display = "none";
     };
 
+    componentWillUnmount = () => {
+        this.state.controller.abort();
+    };
     render() {
         return (
             <div className="appointment">
