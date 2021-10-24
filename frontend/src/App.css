@@ -226,7 +226,7 @@ nav ul li .link:active + .line {
     align-items: center;
 }
 
-.account-form div{
+.account-form div {
     width: 100%;
 }
 
@@ -454,7 +454,7 @@ footer a:hover {
 }
 
 .doctor-attribute-key {
-    color:rgb(19, 83, 73);
+    color: rgb(19, 83, 73);
 }
 
 .doctor-attribute span {
@@ -583,7 +583,8 @@ footer a:hover {
     border-radius: 5px;
 }
 
-.bookings {
+.bookings,
+.no-data {
     margin: auto;
     width: 90%;
     background-color: var(--light_blue);
