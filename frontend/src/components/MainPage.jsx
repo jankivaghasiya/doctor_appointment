@@ -10,13 +10,13 @@ import Pagenotfound from "./PageNotFound";
 import Diagnosis from "./Diagnosis";
 
 class Mainpage extends Component {
-    state = {
-        bookingsKey: Date.now(),
-    };
+  state = {
+    bookingsKey: Date.now(),
+  };
 
-    remountBookings = () => {
-        this.setState({ bookingsKey: Date.now() });
-    };
+  remountBookings = () => {
+    this.setState({ bookingsKey: Date.now() });
+  };
 
     render() {
         return (
