@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Pagenotfound extends Component {
     render() {
@@ -7,7 +7,7 @@ class Pagenotfound extends Component {
                 <img src={require("../asset/error.png").default} alt="" />
             </div>
         );
-    } 
+    }
 }
 
 export default Pagenotfound;

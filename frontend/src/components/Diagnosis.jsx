@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import headers from "../token";
-import "./diagnosis.css";
+import headers from "../token.js";
 
 class Diagnosis extends Component {
     state = {

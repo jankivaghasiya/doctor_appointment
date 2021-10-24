@@ -11,11 +11,15 @@ class Doctorinfo extends Component {
                         {`Dr. ${doctor.firstName} ${doctor.lastName}`}
                     </h2>
                     <div className="doctor-attribute">
-                        <span className="doctor-attribute-key">Speciality: </span>
+                        <span className="doctor-attribute-key">
+                            Speciality:{" "}
+                        </span>
                         <span>{doctor.speciality}</span>
                     </div>
                     <div className="doctor-attribute">
-                        <span className="doctor-attribute-key">Experience: </span>
+                        <span className="doctor-attribute-key">
+                            Experience:{" "}
+                        </span>
                         <span>{`${doctor.experience} Years`}</span>
                     </div>
                     <div className="doctor-attribute">
@@ -23,7 +27,9 @@ class Doctorinfo extends Component {
                         <span>{doctor.degree}</span>
                     </div>
                     <div className="doctor-attribute">
-                        <span className="doctor-attribute-key">Consultation Fees: </span>
+                        <span className="doctor-attribute-key">
+                            Consultation Fees:{" "}
+                        </span>
                         <span>{`${doctor.consultationFees} Rupees`}</span>
                     </div>
                 </div>

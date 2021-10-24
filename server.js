@@ -3,32 +3,20 @@ import userRoutes from "./backend/routes/userRoute.js";
 import bookingRoutes from "./backend/routes/bookingRoute.js";
 import doctorRoutes from "./backend/routes/doctorRoute.js";
 import express from "express";
-import dotenv from "dotenv";
-import bodyParser from "body-parser";
 
 //connect database
 connectDB();
 
-//dotenv config
-dotenv.config();
-
 const app = express();
-app.set("json spaces", 4);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-//Creating API for user
 app.use("/api/users", userRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/doctors", doctorRoutes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 //Express js listen method to run project on http://localhost:5000
-app.listen(
-    PORT,
-    console.log(
-        `App is running in ${process.env.NODE_ENV} mode on port ${PORT}`
-    )
-);
+app.listen(PORT, console.log(`App is running on port ${PORT}`));

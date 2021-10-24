@@ -29,11 +29,11 @@ const getMillisecondsFromDate = (date) => {
     var parts = date.split("-");
     var date = new Date(parts[1] + "-" + parts[0] + "-" + parts[2]);
     return date.getTime();
-}
+};
 
 const compareDates = (date1, date2) => {
     return getMillisecondsFromDate(date1) < getMillisecondsFromDate(date2);
-}
+};
 
 export const isSlotAvailable = (req, res) => {
     Booking.findOne({
@@ -66,16 +66,20 @@ export const getBookingsByPatient = (req, res) => {
     })
         .populate("doctor")
         .then((data) => {
-            const current_date = ddMmYyyy(new Date()); 
+            const current_date = ddMmYyyy(new Date());
             const time = [9, 10, 11, 12, 16, 17, 18, 19];
             let bookings = [];
             bookings = data.filter((b) => {
-                if (compareDates(current_date, b.date) || (b.date === current_date && time[b.slot_no] > getCurrentTime())) {
+                if (
+                    compareDates(current_date, b.date) ||
+                    (b.date === current_date &&
+                        time[b.slot_no] > getCurrentTime())
+                ) {
                     return true;
                 }
                 return false;
-            })
-            res.status(200).json(bookings)
+            });
+            res.status(200).json(bookings);
         })
         .catch((err) =>
             res.status(400).json({ message: "unknown error occurred" })

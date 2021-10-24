@@ -8,15 +8,16 @@ import Appointment from "./Appointment";
 import Mybookings from "./MyBookings";
 import Pagenotfound from "./PageNotFound";
 import Diagnosis from "./Diagnosis";
+import Aboutus from "./AboutUs";
 
 class Mainpage extends Component {
-  state = {
-    bookingsKey: Date.now(),
-  };
+    state = {
+        bookingsKey: Date.now(),
+    };
 
-  remountBookings = () => {
-    this.setState({ bookingsKey: Date.now() });
-  };
+    remountBookings = () => {
+        this.setState({ bookingsKey: Date.now() });
+    };
 
     render() {
         return (
@@ -38,6 +39,9 @@ class Mainpage extends Component {
                     </Route>
                     <Route path="/diagnosis" exact>
                         <Diagnosis />
+                    </Route>
+                    <Route path="/about">
+                        <Aboutus />
                     </Route>
                     <Route path="/" exact>
                         <Mainimage />

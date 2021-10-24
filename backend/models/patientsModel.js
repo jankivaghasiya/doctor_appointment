@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
-import 'mongoose-type-email';
-mongoose.SchemaTypes.Email.defaults.message = 'Email address is invalid';
+import "mongoose-type-email";
+mongoose.SchemaTypes.Email.defaults.message = "Email address is invalid";
 
 const patientSchema = mongoose.Schema(
     {
-        firstname: 
-        {
+        firstname: {
             type: String,
             required: true,
         },
@@ -22,9 +21,9 @@ const patientSchema = mongoose.Schema(
             required: true,
         },
     },
-        {
-            timestamps: true,
-        }
+    {
+        timestamps: true,
+    }
 );
 
 const Patient = mongoose.model("Patient", patientSchema);

@@ -66,7 +66,8 @@ export const doesExist = (req, res) => {
     })
         .then((user) => {
             if (user) {
-                bcrypt.compare(req.body.password, user.password)
+                bcrypt
+                    .compare(req.body.password, user.password)
                     .then((success) => {
                         if (success) {
                             res.status(200).json(user);

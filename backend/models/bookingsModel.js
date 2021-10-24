@@ -22,7 +22,7 @@ const bookingSchema = new Schema(
             type: Number,
             required: true,
             min: [0, "invalid slot"],
-            max: [7, "invalid slot"]
+            max: [7, "invalid slot"],
         },
     },
 

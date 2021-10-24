@@ -19,8 +19,14 @@ class Header extends Component {
                                 <div className="line"></div>
                             </li>
                             <li>
-                                <Link className="link" to="/">
-                                    CONTACT US
+                                <Link to="/diagnosis" className="link">
+                                    SYMPTOM-CHECKER
+                                </Link>
+                                <div className="line"></div>
+                            </li>
+                            <li>
+                                <Link className="link" to="/about">
+                                    ABOUT US
                                 </Link>
                                 <div className="line"></div>
                             </li>

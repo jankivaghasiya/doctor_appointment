@@ -54,7 +54,7 @@ class Signup extends Component {
     componentWillUnmount = () => {
         this.state.controller.abort();
     };
-    
+
     render() {
         const { errors } = this.state;
         return (
