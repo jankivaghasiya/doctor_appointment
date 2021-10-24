@@ -6,9 +6,11 @@ import { withRouter } from "react-router";
 class Appointment extends Component {
     constructor(props) {
         super(props);
+        const abrotCtrl = new AbortController();
         this.state = {
             doctor: null,
             slotsKey: Date.now(),
+            abrotCtrl: abrotCtrl,
         };
     }
 
@@ -17,7 +19,9 @@ class Appointment extends Component {
     };
 
     componentDidMount = () => {
-        fetch(`/api/doctors/${this.props.match.params.doctorId}`)
+        fetch(`/api/doctors/${this.props.match.params.doctorId}`, {
+            signal: this.state.abrotCtrl.signal,
+        })
             .then((res) => {
                 if (res.status === 400) {
                     this.props.history.push("/not-found");
@@ -31,7 +35,12 @@ class Appointment extends Component {
                 } else {
                     this.setState({ doctor: result });
                 }
-            });
+            })
+            .catch(console.log);
+    };
+
+    componentWillUnmount = () => {
+        this.state.abrotCtrl.abort();
     };
 
     render() {

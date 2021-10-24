@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import validator from "validator";
+import bcrypt from "bcrypt";
 
 const userSchema = mongoose.Schema(
     {
@@ -21,9 +22,10 @@ const userSchema = mongoose.Schema(
         contactNo: {
             type: String,
             required: [true, "Contact number required"],
-            validate: [(value) =>
-                validator.isMobilePhone(value, 'en-IN')
-                , "Contact number is not valid"],
+            validate: [
+                (value) => validator.isMobilePhone(value, "en-IN"),
+                "Contact number is not valid",
+            ],
         },
         email: {
             type: String,
@@ -42,6 +44,16 @@ const userSchema = mongoose.Schema(
         timestamps: true,
     }
 );
+
+userSchema.pre("save", function (next) {
+    bcrypt
+        .genSalt()
+        .then((salt) => bcrypt.hash(this.password, salt))
+        .then((hashed) => {
+            this.password = hashed;
+            next();
+        });
+});
 
 const User = mongoose.model("User", userSchema);
 

@@ -11,6 +11,7 @@ class Signup extends Component {
         password2: "",
         contactNo: "",
         errors: {},
+        controller: new AbortController(),
     };
 
     handleChange = (event, propperty) => {
@@ -38,6 +39,7 @@ class Signup extends Component {
                 password: this.state.password,
                 contactNo: this.state.contactNo,
             }),
+            signal: this.state.controller.signal,
         })
             .then((res) => {
                 if (res.status === 400) {
@@ -49,6 +51,10 @@ class Signup extends Component {
             .catch(console.log);
     };
 
+    componentWillUnmount = () => {
+        this.state.controller.abort();
+    };
+    
     render() {
         const { errors } = this.state;
         return (

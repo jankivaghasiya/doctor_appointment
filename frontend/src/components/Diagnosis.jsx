@@ -15,6 +15,7 @@ class Diagnosis extends Component {
         conditions: [],
         new_symptom: "",
         choice_id: "",
+        controller: new AbortController(),
     };
 
     handleChange = (event, property) => {
@@ -34,6 +35,7 @@ class Diagnosis extends Component {
                     value: parseInt(this.state.age),
                 },
             }),
+            signal: this.state.controller.signal,
         })
             .then((res) => {
                 if (res.status === 400) {
@@ -87,6 +89,7 @@ class Diagnosis extends Component {
             method: "POST",
             headers: headers,
             body: JSON.stringify(body),
+            signal: this.state.controller.signal,
         })
             .then((res) => {
                 if (res.status === 400) {
@@ -111,7 +114,12 @@ class Diagnosis extends Component {
                 } else {
                     this.setState({ question: null });
                 }
-            });
+            })
+            .catch(console.log);
+    };
+
+    componentWillUnmount = () => {
+        this.state.controller.abort();
     };
 
     render() {
