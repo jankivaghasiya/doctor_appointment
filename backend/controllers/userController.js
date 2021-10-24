@@ -1,4 +1,5 @@
 import User from "../models/usersModel.js";
+import bcrypt from "bcrypt";
 
 const handleError = (err) => {
     let error = {
@@ -62,10 +63,20 @@ export const addUser = (req, res) => {
 export const doesExist = (req, res) => {
     User.findOne({
         email: req.body.email,
-        password: req.body.password,
     })
         .then((user) => {
-            res.status(200).json(user);
+            if (user) {
+                bcrypt.compare(req.body.password, user.password)
+                    .then((success) => {
+                        if (success) {
+                            res.status(200).json(user);
+                        } else {
+                            res.status(200).json(null);
+                        }
+                    });
+            } else {
+                res.status(200).json(user);
+            }
         })
         .catch((err) => {
             res.status(400).json({ message: "unknown error occurred" });
