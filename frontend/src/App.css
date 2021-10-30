@@ -451,7 +451,11 @@ footer a:hover {
     background-color: rgb(224, 218, 218);
     border-radius: 10px;
     align-self: center;
-    padding: 20px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .doctor-name {

@@ -6,6 +6,7 @@ class Doctorinfo extends Component {
         const { doctor } = this.props;
         return (
             <div className="doctor-info">
+                <img src={doctor.imageUrl} alt="doctor" />
                 <div>
                     <h2 className="doctor-name">
                         {`Dr. ${doctor.firstName} ${doctor.lastName}`}

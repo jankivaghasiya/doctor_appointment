@@ -26,6 +26,7 @@ const doctorSchema = mongoose.Schema(
             type: Number,
             required: true,
         },
+        imageUrl: String,
     },
     {
         timestamps: true,
