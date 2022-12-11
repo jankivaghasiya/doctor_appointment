@@ -317,6 +317,7 @@ nav ul li .link:active + .line {
     box-shadow: 3px 2px 15px black;
     padding: 8px;
     margin: 10px;
+    border-radius: 0.5em;
     text-align: center;
     font-size: large;
 }
@@ -367,7 +368,7 @@ footer .content .box {
 footer .content .topic {
     font-size: 24px;
     font-weight: bold;
-    color: black;
+    color: white;
     margin-bottom: 16px;
 }
 
