@@ -84,7 +84,7 @@ class Diagnosis extends Component {
             },
         };
 
-        fetch("https://api.infermedica.com/v2/diagnosis", {
+        fetch("https://api.infermedica.com/v3/diagnosis", {
             method: "POST",
             headers: headers,
             body: JSON.stringify(body),
